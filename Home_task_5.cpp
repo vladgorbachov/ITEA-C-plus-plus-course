@@ -1,32 +1,27 @@
 #include <iostream>
+
 using namespace std;
+
 int main()
 {
-	int size, n, i, j, max;
-	cout << "Please enter the size of array: ";
-	cin >> size;
-	int* a = new int[size];
-	int* k = new int[size];
-	max = 0;
-	for (i = 0; i < size; i++)
-	{
-		cout << "Enter " << i << " element: ";
-		cin >> a[i];
-	}
-	for (i = 0; i < size; i++)
-	{
-		k[i] = 0;
-		for (j = 1 + i; j < size; j++)
-		{
-			if (a[i] == a[j]) k[i] = k[i] + 1;
+	int n, m;
+	string st, std;
+	cout << "Please enter your string: " << endl;
+	cin >> st;
+
+	for (n = 0; n < st.size(); n++) {
+		if (st[n] == st[n + 1]) {
+			st.erase(n, 1);
 		}
 	}
-	cout << endl;
-	for (i = 0; i < size; i++)
-	{
-		if (k[i] > max) max = k[i];
+	std = st;
+	for (n = 0; n < st.size(); n++) {
+		for (m = n + 1; m < std.size() + 1; m++) {
+			if (st[n] == std[m]) {
+				std.erase(m, 1);
+			}
+		}
 	}
-	max = max + 1;
-	cout << "Max sequence: " << max;
-	return 0;
+	cout << "Correct string: " << std;
 }
+
